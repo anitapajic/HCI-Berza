@@ -2,13 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { MyChartComponent } from './chart/chart.component';
+import { FormsModule } from '@angular/forms';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyChartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule, NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
