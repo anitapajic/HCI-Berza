@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MyChartComponent } from './chart/chart.component';
 import { FormsModule } from '@angular/forms';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
     MyChartComponent
   ],
   imports: [
-    BrowserModule, FormsModule, NgApexchartsModule
+    BrowserModule, FormsModule, NgApexchartsModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

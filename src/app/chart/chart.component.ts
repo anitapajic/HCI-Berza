@@ -1,7 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import {ChartComponent, ApexAxisChartSeries,ApexChart,ApexYAxis,ApexXAxis,ApexTitleSubtitle} from "ng-apexcharts";
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexYAxis,
+  ApexXAxis,
+  ApexTitleSubtitle,
+  ApexTooltip
+} from "ng-apexcharts";
 import { ApexPlotOptions } from 'ng-apexcharts/public_api';
+import {ChartServiceService} from "../service/chart-service.service";
+
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -10,6 +20,7 @@ export type ChartOptions = {
   xaxis: ApexXAxis;
   yaxis: ApexYAxis;
   title: ApexTitleSubtitle;
+  tooltip:ApexTooltip;
 };
 
 @Component({
@@ -21,7 +32,19 @@ export class MyChartComponent  implements OnInit{
 
   @ViewChild("chart") chart: ChartComponent | undefined;
   public chartOptions: ChartOptions;
-  constructor() {
+  private chartData : any;
+  constructor(private chartService : ChartServiceService) {
+
+    this.chartService.getChart().subscribe({
+      next: (result) => {
+        this.chartData = result;
+        console.log(result);
+      },
+      error: (error) => {
+
+        console.log(error);
+      },
+    })
 
     this.chartOptions = {
       series: [
@@ -270,11 +293,12 @@ export class MyChartComponent  implements OnInit{
             }
           ]
         }
-        
+
       ],
       chart: {
         type: "candlestick",
         height: 350,
+        foreColor: "#EBEAE5"
       },
       title: {
         text: "CandleStick Chart",
@@ -282,7 +306,7 @@ export class MyChartComponent  implements OnInit{
       },
       xaxis: {
         type: "datetime"
-        
+
       },
       yaxis: {
         tooltip: {
@@ -296,13 +320,16 @@ export class MyChartComponent  implements OnInit{
             downward: "#dd5b92"
           }
         }
+      },
+      tooltip:{
+        theme:"dark",
       }
     };
 }
 
   ngOnInit(){
 
-    
+
   }
 
   // public generateDayWiseTimeSeries(baseval, count, yrange) {
