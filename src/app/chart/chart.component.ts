@@ -22,6 +22,14 @@ export type ChartOptions = {
   title: ApexTitleSubtitle;
   tooltip:ApexTooltip;
 };
+interface ChartData {
+  time: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+}
 
 @Component({
   selector: 'app-chart',
@@ -32,19 +40,14 @@ export class MyChartComponent  implements OnInit{
 
   @ViewChild("chart") chart: ChartComponent | undefined;
   public chartOptions: ChartOptions;
-  private chartData : any;
+  private chartData! : ChartData[];
   constructor(private chartService : ChartServiceService) {
 
-    this.chartService.getChart().subscribe({
-      next: (result) => {
-        this.chartData = result;
-        console.log(result);
-      },
-      error: (error) => {
-
-        console.log(error);
-      },
-    })
+    this.chartService.getChart().subscribe(
+      response => {
+        getDataFromResponse(response);
+      }
+    )
 
     this.chartOptions = {
       series: [
@@ -346,3 +349,21 @@ export class MyChartComponent  implements OnInit{
   //   return series;
   // }
 }
+function getDataFromResponse(response: string) : ChartData[] {
+  const data = response.substring(33);
+  const chartData: ChartData[] = data.split('\n').map((row: String) => {
+    const [time, open, high, low, close, volume] = row.split(',');
+    return {
+      time: time,
+      open: parseFloat(open),
+      high: parseFloat(high),
+      low: parseFloat(low),
+      close: parseFloat(close),
+      volume: parseInt(volume),
+    };
+  });
+  console.log(chartData);
+  return chartData;
+
+}
+
