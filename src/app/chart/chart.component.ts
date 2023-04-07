@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import {ChartComponent, ApexAxisChartSeries,ApexChart,ApexYAxis,ApexXAxis,ApexTitleSubtitle} from "ng-apexcharts";
+import { ApexPlotOptions } from 'ng-apexcharts/public_api';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
+  plotOptions: ApexPlotOptions;
   xaxis: ApexXAxis;
   yaxis: ApexYAxis;
   title: ApexTitleSubtitle;
@@ -268,10 +270,11 @@ export class MyChartComponent  implements OnInit{
             }
           ]
         }
+        
       ],
       chart: {
         type: "candlestick",
-        height: 350
+        height: 350,
       },
       title: {
         text: "CandleStick Chart",
@@ -279,14 +282,22 @@ export class MyChartComponent  implements OnInit{
       },
       xaxis: {
         type: "datetime"
+        
       },
       yaxis: {
         tooltip: {
           enabled: true
         }
+      },
+      plotOptions:{
+        candlestick:{
+          colors :{
+            upward: "#75cac4",
+            downward: "#dd5b92"
+          }
+        }
       }
     };
- 
 }
 
   ngOnInit(){
