@@ -9,6 +9,9 @@ import { CryptocurrencyComponent } from './cryptocurrency/cryptocurrency.compone
 import { TimeTableComponent } from './time-table/time-table.component';
 import { InfoTableComponent } from './info-table/info-table.component';
 import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TableComponent } from './table/table.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,11 +20,15 @@ import { FooterComponent } from './footer/footer.component';
     CryptocurrencyComponent,
     TimeTableComponent,
     InfoTableComponent,
-    FooterComponent
+    FooterComponent,
+    TableComponent
   ],
+    
   imports: [
-    BrowserModule, FormsModule, NgApexchartsModule
+    BrowserModule, FormsModule, NgApexchartsModule, HttpClientModule, CommonModule
+
   ],
+  exports : [CommonModule],
   providers: [],
   bootstrap: [AppComponent]
 })
