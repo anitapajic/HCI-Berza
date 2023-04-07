@@ -12,5 +12,8 @@ export class ChartServiceService {
   getChart(){
     return this.http.get("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY_EXTENDED&symbol=IBM&interval=15min&slice=year1month1&apikey="+ this.API_KEY, { responseType: 'text' });
   }
+  getBTC(){
+    return this.http.get('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=' + this.API_KEY + '&datatype=csv', { responseType: 'text' })
+  }
 
 }
