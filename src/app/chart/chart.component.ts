@@ -275,6 +275,7 @@ export class MyChartComponent  implements OnInit{
       chart: {
         type: "candlestick",
         height: 350,
+        foreColor:"#EBEAE5"
       },
       title: {
         text: "CandleStick Chart",

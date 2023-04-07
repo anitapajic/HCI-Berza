@@ -1,0 +1,26 @@
+.info{
+    background-color: #2D3653;
+    border-radius: 25px;
+    height: 300px;
+    margin-top: 100px;
+    padding-top: 0;
+}
+.content-align{
+    padding: 30px;
+}
+.vl {
+    border-left: 1px solid #25313c44;
+    height: 50px;
+  }
+.title{
+    color: #2D3653;
+}
+.value{
+    color: #EBEAE5;
+}
+.card{
+    padding: 10px;
+    
+    background-color: #758ADD;
+    border-radius: 22px;
+}

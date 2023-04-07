@@ -5,11 +5,17 @@ import { AppComponent } from './app.component';
 import { MyChartComponent } from './chart/chart.component';
 import { FormsModule } from '@angular/forms';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { CryptocurrencyComponent } from './cryptocurrency/cryptocurrency.component';
+import { TimeTableComponent } from './time-table/time-table.component';
+import { InfoTableComponent } from './info-table/info-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyChartComponent
+    MyChartComponent,
+    CryptocurrencyComponent,
+    TimeTableComponent,
+    InfoTableComponent
   ],
   imports: [
     BrowserModule, FormsModule, NgApexchartsModule
