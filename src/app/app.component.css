@@ -5,7 +5,7 @@ img{
 .containerr{
     display: grid;
     grid-template-columns: 0.75fr 1fr 1fr 0.9fr;
-    grid-template-rows: 0.2fr 0.2fr 2.0fr 0.3fr;
+    grid-template-rows: 0.2fr 0.2fr 2.9fr 0.3fr;
     grid-template-areas: 
         "nav nav nav nav"
         "LSideBar title title title"
@@ -22,10 +22,9 @@ img{
     background-color: #11193B;
     grid-area: LSideBar;
     border-right: 1px solid #EBEAE5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
     margin-bottom: 50px;
+    padding-top: 0px;
 }
 #title{
     background-color: #11193B;
