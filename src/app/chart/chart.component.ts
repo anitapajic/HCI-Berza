@@ -37,11 +37,11 @@ interface ChartData {
 })
 export class MyChartComponent  implements OnInit{
 
-  @ViewChild("chart") chart: ChartComponent | undefined;
+  
   public chartOptions: ChartOptions;
   private chartData! : any[];
+  
   constructor(private chartService : ChartServiceService) {
-
     this.chartService.getBTC().subscribe(
       response => {
         this.chartData = getDataFromResponse(response);
@@ -99,14 +99,13 @@ export class MyChartComponent  implements OnInit{
 
 
 function getDataFromResponse(response: string) : ChartData[] {  
-  const chartData: any[] = response.split('\n').slice(1).map((row: String, index:number) => {
+  const chartData: any[] = response.split('\n').slice(1,  -1).map((row: String, index:number) => {
     const [time, open, high, low, close, volume] = row.split(',');
     return {
       x : new Date(time),
       y: [parseFloat(open), parseFloat(high), parseFloat(low), parseFloat(close)]
     };
   });
-  console.log(chartData);
   return chartData;
 
 }

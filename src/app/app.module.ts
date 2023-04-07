@@ -6,15 +6,20 @@ import { MyChartComponent } from './chart/chart.component';
 import { FormsModule } from '@angular/forms';
 import { NgApexchartsModule } from "ng-apexcharts";
 import { HttpClientModule } from '@angular/common/http';
+import { TableComponent } from './table/table.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyChartComponent
-  ],
+    MyChartComponent,
+    TableComponent
+    ],
   imports: [
-    BrowserModule, FormsModule, NgApexchartsModule, HttpClientModule
+    BrowserModule, FormsModule, NgApexchartsModule, HttpClientModule, CommonModule
+
   ],
+  exports : [CommonModule],
   providers: [],
   bootstrap: [AppComponent]
 })
