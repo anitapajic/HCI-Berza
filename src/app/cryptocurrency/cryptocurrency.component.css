@@ -54,6 +54,16 @@
     padding: 0;
     padding-left: 12px;
 }
+.col7e{
+    padding-top: 5px;
+    padding-right: 0px;
+    max-width: 60.1%;
+}
+.col5e{
+    padding: 0;
+    padding-left: 8px;
+    max-width: 39.1%;
+}
 .card:hover{
     background-color: #758ADD;
     transform: scale(1.06);
