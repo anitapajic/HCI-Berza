@@ -8,6 +8,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
 import { CryptocurrencyComponent } from './cryptocurrency/cryptocurrency.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { InfoTableComponent } from './info-table/info-table.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { InfoTableComponent } from './info-table/info-table.component';
     MyChartComponent,
     CryptocurrencyComponent,
     TimeTableComponent,
-    InfoTableComponent
+    InfoTableComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule, FormsModule, NgApexchartsModule
