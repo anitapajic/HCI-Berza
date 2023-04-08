@@ -22,6 +22,8 @@
     "apexcharts": "^3.37.3",
     "core-js": "3.6.5",
     "ng-apexcharts": "^1.7.4",
+    "ng-charts": "^1.0.0-alpha",
+    "ng2-charts": "^4.1.1",
     "react-apexcharts": "^1.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

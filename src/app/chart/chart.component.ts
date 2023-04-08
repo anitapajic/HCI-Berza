@@ -7,10 +7,12 @@ import {
   ApexYAxis,
   ApexXAxis,
   ApexTitleSubtitle,
-  ApexTooltip
+  ApexTooltip, ApexDataLabels, ApexFill
 } from "ng-apexcharts";
 import { ApexPlotOptions } from 'ng-apexcharts/public_api';
 import {ChartServiceService} from "../service/chart-service.service";
+import {colors} from "@angular/cli/src/utilities/color";
+import {from} from "rxjs";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -20,6 +22,9 @@ export type ChartOptions = {
   yaxis: ApexYAxis;
   title: ApexTitleSubtitle;
   tooltip:ApexTooltip;
+  dataLabels : ApexDataLabels;
+  fill:ApexFill;
+
 };
 interface ChartData {
   time: string;
@@ -40,6 +45,12 @@ export class MyChartComponent  implements OnInit{
   @ViewChild("chart") chart: ChartComponent | undefined;
   public chartOptions: ChartOptions;
   private chartData! : any[];
+  chartVolumeData! : any[];
+  @ViewChild("chartVolume") chartVolume: ChartComponent | undefined;
+  public chartVolumeOptions: ChartOptions;
+
+
+
   constructor(private chartService : ChartServiceService) {
 
     this.chartService.getBTC().subscribe(
@@ -48,8 +59,52 @@ export class MyChartComponent  implements OnInit{
         this.chartOptions.series = [{
           data : this.chartData
         }]
+        this.chartVolumeData = getVolumeDataFromResponse(response);
+        this.chartVolumeOptions.series = [{
+          data : this.chartVolumeData
+        }]
       }
     )
+
+    this.chartVolumeOptions = {
+      series: [
+        {
+          name: "volume",
+          data: []
+        }
+
+      ],
+      fill:{
+        colors:["#758add"]
+
+      },
+      chart: {
+        type: "bar",
+        height: 250,
+        foreColor: "#EBEAE5",
+      },
+      dataLabels:{
+        enabled:false,
+      },
+      title: {
+        text: "Volume",
+        align: "left"
+      },
+      xaxis: {
+        type: "datetime"
+
+      },
+      yaxis: {
+        tooltip: {
+          enabled: true
+        }
+      },
+      tooltip:{
+        theme:"dark",
+      },
+      plotOptions:{
+      }
+    };
 
     this.chartOptions = {
       series: [
@@ -77,6 +132,9 @@ export class MyChartComponent  implements OnInit{
           enabled: true
         }
       },
+      fill:{
+
+      },
       plotOptions:{
         candlestick:{
           colors :{
@@ -87,6 +145,9 @@ export class MyChartComponent  implements OnInit{
       },
       tooltip:{
         theme:"dark",
+      },
+      dataLabels:{
+
       }
     };
 }
@@ -98,7 +159,7 @@ export class MyChartComponent  implements OnInit{
 }
 
 
-function getDataFromResponse(response: string) : ChartData[] {  
+function getDataFromResponse(response: string) : ChartData[] {
   const chartData: any[] = response.split('\n').slice(1).map((row: String, index:number) => {
     const [time, open, high, low, close, volume] = row.split(',');
     return {
@@ -108,6 +169,19 @@ function getDataFromResponse(response: string) : ChartData[] {
   });
   console.log(chartData);
   return chartData;
+
+}
+
+function getVolumeDataFromResponse(response: string) : ChartData[] {
+  const chartVolumeData: any[] = response.split('\n').slice(1).map((row: String, index:number) => {
+    const [time, open, high, low, close, volume] = row.split(',');
+    return {
+      x : new Date(time),
+      y: [parseFloat(volume)]
+    };
+  });
+  console.log(chartVolumeData);
+  return chartVolumeData;
 
 }
 
