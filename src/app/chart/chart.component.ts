@@ -42,7 +42,7 @@ interface ChartData {
 })
 export class MyChartComponent  implements OnInit{
 
-  @ViewChild("chart") chart: ChartComponent | undefined;
+  
   public chartOptions: ChartOptions;
   private chartData! : any[];
   chartVolumeData! : any[];
@@ -52,7 +52,6 @@ export class MyChartComponent  implements OnInit{
 
 
   constructor(private chartService : ChartServiceService) {
-
     this.chartService.getBTC().subscribe(
       response => {
         this.chartData = getDataFromResponse(response);
@@ -167,7 +166,6 @@ function getDataFromResponse(response: string) : ChartData[] {
       y: [parseFloat(open), parseFloat(high), parseFloat(low), parseFloat(close)]
     };
   });
-  console.log(chartData);
   return chartData;
 
 }
