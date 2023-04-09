@@ -1,8 +1,31 @@
 <div class="align-search">
+
+    <!-- <div class="form-group form-group-sm" style="color: aliceblue;">
+        <mat-form-field>
+            <mat-select multiple>
+                <input type="text" class="p-2" autocomplete="off" matInput placeholder="Search..." 
+                #search (input)="onInputChange()">
+            </mat-select>
+            <mat-option *ngFor="let currency of dropdownList" [value]="currency.item_id">{{currency.item_text}}</mat-option>
+        </mat-form-field>
+    </div>
+    <div class="form-group form-group-sm" >
+        <button type="submit"><img src="./assets/image/search.png"></button>
+
+    </div> -->
+
+
+    
     <form action="" class="search-bar">
         <input type="text" placeholder="Search markets..." name="q">
+        <select>
+            <option *ngFor="let currency of currencies" [value]="currency.code">{{ currency.name }}</option>
+        </select>
         <button type="submit"><img src="./assets/image/search.png"></button>
-    </form>
+    </form>  
+
+
+
 </div>
 <div class="align">
 <div class="cryptocurrency">
@@ -23,29 +46,29 @@
     <div class="card" id="card2">
         <div class="row">
             <div class="col-7 col7e">
-                <p class="title">{{Ethereum?.title}}</p>
+                <p class="title">{{ETH?.title}}</p>
             </div>  
             <div class="col-5 col5e">
-                <img src="./assets/image/{{Ethereum?.img}}" alt="" class="btc">
+                <img src="./assets/image/{{ETH?.img}}" alt="" class="btc">
             </div> 
 
         </div>
         <div class="row">
-            <p class="price">{{Ethereum?.value}}</p>
+            <p class="price">{{ETH?.value}}</p>
         </div>
     </div>
     <div class="card" id="card3">
         <div class="row">
             <div class="col-7">
-                <p class="title">{{Solana?.title}}</p>
+                <p class="title">{{SOL?.title}}</p>
             </div>  
             <div class="col-5">
-                <img src="./assets/image/{{Solana?.img}}" alt="" class="btc">
+                <img src="./assets/image/{{SOL?.img}}" alt="" class="btc">
             </div> 
 
         </div>
         <div class="row">
-            <p class="price">{{Solana?.value}}</p>
+            <p class="price">{{SOL?.value}}</p>
         </div>
     </div>
     <div class="card" id="card4" *ngIf="selectedOption != undefined">
@@ -54,8 +77,7 @@
                 <p class="title">{{selectedOption.title}}</p>
             </div>  
             <div class="col-5">
-                <img src="./assets/image/sol_logo.png" alt="" class="btc">
-                <!-- <img src="./assets/image/{{selectedOption.img}}" alt="" class="btc"> -->
+                <img src="./assets/image/{{selectedOption.img}}" alt="" class="btc">
             </div> 
 
         </div>

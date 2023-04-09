@@ -178,7 +178,6 @@ function getVolumeDataFromResponse(response: string) : ChartData[] {
       y: [parseFloat(volume)]
     };
   });
-  console.log(chartVolumeData);
   return chartVolumeData;
 
 }

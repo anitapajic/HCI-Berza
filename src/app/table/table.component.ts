@@ -20,7 +20,6 @@ export class TableComponent implements AfterViewInit {
     )
   }
   ngAfterViewInit(){
-    console.log(this.table)
 
   }
 
