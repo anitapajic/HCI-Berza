@@ -7,7 +7,9 @@
 table{
     width: 600px;
     border-collapse: initial;
-    border-spacing: 0 10px;
+    border-spacing: 0 0;
+    background-color: #2D3653;
+    border-radius: 20px;
 }
 
 table tr:first-child{
