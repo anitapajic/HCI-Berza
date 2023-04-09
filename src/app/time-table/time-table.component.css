@@ -2,10 +2,11 @@
     padding-top: 20px;
     padding-bottom: 30px;
     padding-left: 60px;
+    padding-right: 60px;
 }
 
 table{
-    width: 600px;
+    width: 100%;
     border-collapse: initial;
     border-spacing: 0 0;
     background-color: #2D3653;
