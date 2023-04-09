@@ -20,9 +20,10 @@ import { CommonModule } from '@angular/common';
     CryptocurrencyComponent,
     TimeTableComponent,
     InfoTableComponent,
-    FooterComponent, 
+    FooterComponent,
     TableComponent
-    ],
+  ],
+    
   imports: [
     BrowserModule, FormsModule, NgApexchartsModule, HttpClientModule, CommonModule
 
