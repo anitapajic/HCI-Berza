@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ChartServiceService} from "../service/chart-service.service";
 
 
 export type selectedOption = {
@@ -18,6 +19,7 @@ export class CryptocurrencyComponent {
   public BTC : selectedOption | undefined;
   public Ethereum : selectedOption | undefined;
   public Solana : selectedOption | undefined;
+  chartService : ChartServiceService | undefined;
 
 
   constructor(){
@@ -42,6 +44,27 @@ export class CryptocurrencyComponent {
       img : ''
     }
   }
+getBTC(){
+  this.chartService?.getCryptoDaily("BTC").subscribe(
+    response => {
+      return response;
+    }
+  )
+}
+  getETH(){
+    this.chartService?.getCryptoDaily("ETH").subscribe(
+      response => {
+        return response;
+      }
+    )
+  }
 
+  getSOL(){
+    this.chartService?.getCryptoDaily("SOL").subscribe(
+      response => {
+        return response;
+      }
+    )
+  }
 
 }

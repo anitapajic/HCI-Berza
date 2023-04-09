@@ -6,42 +6,42 @@
 </div>
 <div class="align">
 <div class="cryptocurrency">
-    <div class="card" id="card1">
+    <div (click)="getBTC()" class="card" id="card1">
         <div class="row">
             <div class="col-7">
                 <p class="title">{{BTC?.title}}</p>
-            </div>  
+            </div>
             <div class="col-5">
                 <img src="./assets/image/{{BTC?.img}}" alt="" class="btc">
-            </div> 
+            </div>
 
         </div>
         <div class="row">
             <p class="price">{{BTC?.value}}</p>
         </div>
     </div>
-    <div class="card" id="card2">
+    <div (click)="getETH()"class="card" id="card2">
         <div class="row">
             <div class="col-7 col7e">
                 <p class="title">{{Ethereum?.title}}</p>
-            </div>  
+            </div>
             <div class="col-5 col5e">
                 <img src="./assets/image/{{Ethereum?.img}}" alt="" class="btc">
-            </div> 
+            </div>
 
         </div>
         <div class="row">
             <p class="price">{{Ethereum?.value}}</p>
         </div>
     </div>
-    <div class="card" id="card3">
+    <div (click)="getSOL()"class="card" id="card3">
         <div class="row">
             <div class="col-7">
                 <p class="title">{{Solana?.title}}</p>
-            </div>  
+            </div>
             <div class="col-5">
                 <img src="./assets/image/{{Solana?.img}}" alt="" class="btc">
-            </div> 
+            </div>
 
         </div>
         <div class="row">
@@ -52,11 +52,11 @@
         <div class="row">
             <div class="col-7">
                 <p class="title">{{selectedOption.title}}</p>
-            </div>  
+            </div>
             <div class="col-5">
                 <img src="./assets/image/sol_logo.png" alt="" class="btc">
                 <!-- <img src="./assets/image/{{selectedOption.img}}" alt="" class="btc"> -->
-            </div> 
+            </div>
 
         </div>
         <div class="row">

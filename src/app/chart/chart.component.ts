@@ -11,8 +11,8 @@ import {
 } from "ng-apexcharts";
 import { ApexPlotOptions } from 'ng-apexcharts/public_api';
 import {ChartServiceService} from "../service/chart-service.service";
-import {colors} from "@angular/cli/src/utilities/color";
-import {from} from "rxjs";
+import {CryptocurrencyComponent} from "../cryptocurrency/cryptocurrency.component";
+import {TimeTableComponent} from "../time-table/time-table.component";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -42,14 +42,15 @@ interface ChartData {
 })
 export class MyChartComponent  implements OnInit{
 
-  
   public chartOptions: ChartOptions;
+  private selectedCrypto : String = "";
+  private selectedInterval:Number = 0;
   private chartData! : any[];
   chartVolumeData! : any[];
+  cryptocurrencyComponent : CryptocurrencyComponent | undefined;
+  intervalComponent : TimeTableComponent | undefined;
   @ViewChild("chartVolume") chartVolume: ChartComponent | undefined;
   public chartVolumeOptions: ChartOptions;
-
-
 
   constructor(private chartService : ChartServiceService) {
     this.chartService.getBTC().subscribe(
@@ -178,7 +179,6 @@ function getVolumeDataFromResponse(response: string) : ChartData[] {
       y: [parseFloat(volume)]
     };
   });
-  console.log(chartVolumeData);
   return chartVolumeData;
 
 }
