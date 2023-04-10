@@ -70,8 +70,8 @@ export class CryptocurrencyComponent implements OnInit{
     // }
   }
 
-  getDaily(crypto : String){
-    this.chartService?.getCryptoDaily(crypto);
+  getInfo(crypto : String){
+    this.chartService?.getCrypto(crypto, '');
   }
 
   ngOnInit(): void {

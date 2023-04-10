@@ -43,8 +43,6 @@ interface ChartData {
 export class MyChartComponent  implements OnInit{
 
   public chartOptions: ChartOptions;
-  private selectedCrypto : String = "";
-  private selectedInterval: Number = 0;
   private chartData! : any[];
   chartVolumeData! : any[];
   cryptocurrencyComponent : CryptocurrencyComponent | undefined;
@@ -54,7 +52,7 @@ export class MyChartComponent  implements OnInit{
   public chartVolumeOptions: ChartOptions;
 
   constructor(private chartService : ChartServiceService) {
-    this.chartService.getCryptoDaily('BTC')
+    this.chartService.getCrypto('','')
 
     this.chartService.data.subscribe((data : any) => {
       this.chartData = getDataFromResponse(data);
