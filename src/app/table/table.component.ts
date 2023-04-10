@@ -13,11 +13,10 @@ export class TableComponent implements AfterViewInit {
 
   constructor(private chartService : ChartServiceService) {
 
-    this.chartService.getBTC().subscribe(
-      response => {
-        this.tableData = getDataFromResponse(response);
-      }
-    )
+    this.chartService.data.subscribe((data : any) => {
+      this.tableData = getDataFromResponse(data);
+    });
+
   }
   ngAfterViewInit(){
 

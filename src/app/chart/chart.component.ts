@@ -11,8 +11,8 @@ import {
 } from "ng-apexcharts";
 import { ApexPlotOptions } from 'ng-apexcharts/public_api';
 import {ChartServiceService} from "../service/chart-service.service";
-import {colors} from "@angular/cli/src/utilities/color";
-import {from} from "rxjs";
+import {CryptocurrencyComponent} from "../cryptocurrency/cryptocurrency.component";
+import {TimeTableComponent} from "../time-table/time-table.component";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -42,28 +42,29 @@ interface ChartData {
 })
 export class MyChartComponent  implements OnInit{
 
-  
   public chartOptions: ChartOptions;
   private chartData! : any[];
   chartVolumeData! : any[];
+  cryptocurrencyComponent : CryptocurrencyComponent | undefined;
+  intervalComponent : TimeTableComponent | undefined;
   @ViewChild("chartVolume") chartVolume: ChartComponent | undefined;
+
   public chartVolumeOptions: ChartOptions;
 
-
-
   constructor(private chartService : ChartServiceService) {
-    this.chartService.getBTC().subscribe(
-      response => {
-        this.chartData = getDataFromResponse(response);
-        this.chartOptions.series = [{
-          data : this.chartData
-        }]
-        this.chartVolumeData = getVolumeDataFromResponse(response);
-        this.chartVolumeOptions.series = [{
-          data : this.chartVolumeData
-        }]
-      }
-    )
+    this.chartService.getCrypto('','')
+
+    this.chartService.data.subscribe((data : any) => {
+      this.chartData = getDataFromResponse(data);
+      this.chartOptions.series = [{
+        data : this.chartData
+      }]
+      this.chartVolumeData = getVolumeDataFromResponse(data);
+      this.chartVolumeOptions.series = [{
+        data : this.chartVolumeData
+      }]
+    });
+  
 
     this.chartVolumeOptions = {
       series: [

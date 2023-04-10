@@ -2,15 +2,15 @@
     <table id="table">
         <tr>
             <td class="no-hover" style="font-weight: 700; color: #EBEAE5;">Time</td>
-            <td>1m</td>
-            <td>5m</td>
-            <td>15m</td>
-            <td>30m</td>
-            <td>1H</td>
-            <td>1D</td>
-            <td>1W</td>
-            <td>1M</td>
-            <td>1Y</td>
+            <td (click)="getIBM(1)" [ngClass]="{'clicked': currentPeriod == '1'}">1m</td>
+            <td (click)="getIBM(5)" [ngClass]="{'clicked': currentPeriod == '5'}">5m</td>
+            <td (click)="getIBM(15)" [ngClass]="{'clicked': currentPeriod == '15'}">15m</td>
+            <td (click)="getIBM(30)" [ngClass]="{'clicked': currentPeriod == '30'}">30m</td>
+            <td (click)="getIBM(60)" [ngClass]="{'clicked': currentPeriod == '60'}">1H</td>
+            <td (click)="getCrypto('D')" [ngClass]="{'clicked': currentPeriod == 'D'}">1D</td>
+            <td (click)="getCrypto('W')" [ngClass]="{'clicked': currentPeriod == 'W'}">1W</td>
+            <td (click)="getCrypto('M')" [ngClass]="{'clicked': currentPeriod == 'M'}">1M</td>
+            <td (click)="getCrypto('Y')" [ngClass]="{'clicked': currentPeriod == 'Y'}">1Y</td>
         </tr>
-    </table>    
+    </table>
 </div>
