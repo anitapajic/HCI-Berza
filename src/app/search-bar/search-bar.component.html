@@ -4,7 +4,7 @@
       <mat-chip style="margin-top:0.4em;" *ngFor="let option of  this.dataService.searchOption" (removed)="removeOption(option)">
 
          <span>{{option.title}}</span>
-<!--        (removed)="removeOption(option)"-->
+
 
         <mat-icon matChipRemove>cancel</mat-icon>
       </mat-chip>

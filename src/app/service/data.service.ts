@@ -13,43 +13,62 @@ export class DataService {
     {
       "title": "Bitcoin ",
       "value" : "BTC",
-
+      "img" : "btc_logo.png",
+      "price" : "$29091.04"
     },
     {
       "title": "Ethereum",
-      "value" : "ETH"
+      "value" : "ETH",
+      "img" : "eth_logo.png",
+      "price" : "$1880.92"
     },
     {
       "title": "Solana",
-      "value" : "SOL"
+      "value" : "SOL",
+      "img" : "sol_logo.png",
+      "price" : "$20.54"
     },
     {
       "title": "Cardano",
-      "value" : "ADA"
+      "value" : "ADA",
+      "img" : "ada_logo.png",
+      "price" : "$0.3889"
     },
     {
       "title": "Bodhi",
-      "value" : "BOT"
+      "value" : "BOT",
+      "img" : "bot_logo.png",
+      "price" : "$0.0025"
     },
     {
       "title": "ION",
-      "value" : "ION"
+      "value" : "ION",
+      "img" : "ion_logo.png",
+      "price" : "$0.004711"
     },
     {
       "title": "Terra",
-      "value" : "LUNA"
+      "value" : "LUNA",
+      "img" : "luna_logo.png",
+      "price" : "$0.000124"
     },
     {
       "title": "Mercury",
-      "value" : "MER"
+      "value" : "MER",
+      "img" : "mer_logo.png",
+      "price" : "$0.00133"
     },
     {
       "title": "Odyssey",
-      "value" : "OCN"
+      "value" : "OCN",
+      "img" : "ocn_logo.png",
+      "price" : "$0.00004991"
     },
     {
       "title": "PotCoin",
-      "value" : "POT"
+      "value" : "POT",
+      "img" : "pot_logo.png",
+      "price" : "$0.003072"
     }
   ]
 

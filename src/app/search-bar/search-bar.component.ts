@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DataService } from "../service/data.service";
 import { Post } from "../post";
 import {MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
+import {MatOptionSelectionChange} from "@angular/material/core";
 
 
 @Component({
@@ -61,8 +62,8 @@ export class SearchBarComponent implements OnInit{
     return k;
   }
 
-  filterPostList(event: any) {
-    const posts = event.option.value as never;
+  filterPostList(event :  MatOptionSelectionChange) {
+    const posts = event.source.value;
     if (!posts) {
       this.dataService.searchOption = [];
     } else {
