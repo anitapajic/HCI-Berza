@@ -161,7 +161,7 @@ export class MyChartComponent  implements OnInit{
 
 function getDataFromResponse(response: string) : ChartData[] {
   const chartData: any[] = response.split('\n').slice(1).map((row: String, index:number) => {
-    const [time, open, high, low, close, volume] = row.split(',');
+    const [time, open, high, low, close, open2, high2, low2, close2,  volume] = row.split(',');
     return {
       x : new Date(time),
       y: [parseFloat(open), parseFloat(high), parseFloat(low), parseFloat(close)]
@@ -172,8 +172,8 @@ function getDataFromResponse(response: string) : ChartData[] {
 }
 
 function getVolumeDataFromResponse(response: string) : ChartData[] {
-  const chartVolumeData: any[] = response.split('\n').slice(1).map((row: String, index:number) => {
-    const [time, open, high, low, close, volume] = row.split(',');
+  const chartVolumeData: any[] = response.split('\n').slice(1).map((row: String) => {
+    const [time, open, high, low, close, open2, high2, low2, close2,  volume] = row.split(',');
     return {
       x : new Date(time),
       y: [parseFloat(volume)]
