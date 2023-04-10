@@ -1,18 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ChartServiceService } from '../service/chart-service.service';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { ListItem } from 'ng-multiselect-dropdown/multiselect.model';
+import { Component, OnInit } from '@angular/core';
 import {Post} from "../post";
 import {DataService} from "../service/data.service";
-
-//
-// export type selectedOption = {
-//   title : String,
-//   value : String,
-//   img : String
-// }
-
-
 
 @Component({
   selector: 'app-cryptocurrency',
