@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import  {Post} from "../post";
 import {Observable, of} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +33,12 @@ export class DataService {
       "price" : "$0.3889"
     },
     {
+      "title": "Terra",
+      "value" : "LUNA",
+      "img" : "luna_logo.png",
+      "price" : "$0.000124"
+    },
+    {
       "title": "Bodhi",
       "value" : "BOT",
       "img" : "bot_logo.png",
@@ -45,12 +49,6 @@ export class DataService {
       "value" : "ION",
       "img" : "ion_logo.png",
       "price" : "$0.004711"
-    },
-    {
-      "title": "Terra",
-      "value" : "LUNA",
-      "img" : "luna_logo.png",
-      "price" : "$0.000124"
     },
     {
       "title": "Mercury",
@@ -73,9 +71,7 @@ export class DataService {
   ]
 
 
-
-
-  constructor(private http: HttpClient) { }
+  constructor() { }
   getPosts(): Observable<Post[]> {
     return of(this.postsData);
   }

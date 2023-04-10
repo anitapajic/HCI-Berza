@@ -1,6 +1,6 @@
 export interface Post{
   title : string,
-  value : any,
+  value : string,
   img : string,
   price : string
 }
