@@ -1,89 +1,25 @@
-<div class="align-search">
-
-    <!-- <div class="form-group form-group-sm" style="color: aliceblue;">
-        <mat-form-field>
-            <mat-select multiple>
-                <input type="text" class="p-2" autocomplete="off" matInput placeholder="Search..." 
-                #search (input)="onInputChange()">
-            </mat-select>
-            <mat-option *ngFor="let currency of dropdownList" [value]="currency.item_id">{{currency.item_text}}</mat-option>
-        </mat-form-field>
-    </div>
-    <div class="form-group form-group-sm" >
-        <button type="submit"><img src="./assets/image/search.png"></button>
-
-    </div> -->
 
 
-    
-    <form action="" class="search-bar">
-        <input type="text" placeholder="Search markets..." name="q">
-        <select>
-            <option *ngFor="let currency of currencies" [value]="currency.code">{{ currency.name }}</option>
-        </select>
-        <button type="submit"><img src="./assets/image/search.png"></button>
-    </form>  
-
-
-
+<div style="margin:auto; width: 70%; margin-top: 30px;">
+  <app-search-bar (onSelectedOption)="onSelectedOption($event)"></app-search-bar>
 </div>
+
 <div class="align">
 <div class="cryptocurrency">
-    <div (click)="getInfo('BTC')" class="card" id="card1" [ngClass]="{'card': true, 'clicked': currentCard == 'BTC'}">
+    <div *ngFor="let posts of post"  id="card1" (click)="onClick(posts.value)" [ngClass]="{'card': true, 'clicked': currentCard == posts.value}">
         <div class="row">
             <div class="col-7">
-                <p class="title">{{BTC?.title}}</p>
+                <p class="title">{{posts.title}}</p>
             </div>
-            <div class="col-5">
-                <img src="./assets/image/{{BTC?.img}}" alt="" class="btc">
-            </div>
-
+          <div class="col-5 col5e">
+            <img src="./assets/image/{{posts.img}}" alt="" class="btc">
+          </div>
         </div>
         <div class="row">
-            <p class="price">{{BTC?.value}}</p>
+            <p class="price">{{posts.price}}</p>
         </div>
     </div>
-    <div (click)="getInfo('ETH')"class="card" id="card2" [ngClass]="{'card': true, 'clicked': currentCard == 'ETH'}" >
-        <div class="row">
-            <div class="col-7 col7e">
-                <p class="title">{{ETH?.title}}</p>
-            </div>  
-            <div class="col-5 col5e">
-                <img src="./assets/image/{{ETH?.img}}" alt="" class="btc">
-            </div> 
 
-        </div>
-        <div class="row">
-            <p class="price">{{ETH?.value}}</p>
-        </div>
-    </div>
-    <div (click)="getInfo('SOL')"class="card" id="card3"  [ngClass]="{'card': true, 'clicked': currentCard == 'SOL'}"  >
-        <div class="row">
-            <div class="col-7">
-                <p class="title">{{SOL?.title}}</p>
-            </div>  
-            <div class="col-5">
-                <img src="./assets/image/{{SOL?.img}}" alt="" class="btc">
-            </div> 
-
-        </div>
-        <div class="row">
-            <p class="price">{{SOL?.value}}</p>
-        </div>
-    </div>
-    <div class="card" id="card4" *ngIf="selectedOption != undefined">
-        <div class="row">
-            <div class="col-7">
-                <p class="title">{{selectedOption.title}}</p>
-            </div>
-            <div class="col-5">
-                <img src="./assets/image/{{selectedOption.img}}" alt="" class="btc">
-            </div> 
-
-        </div>
-        <div class="row">
-            <p class="price">{{selectedOption.value}}</p>
-        </div>
-    </div>
 </div>
 </div>
+

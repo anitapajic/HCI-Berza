@@ -46,6 +46,16 @@ td:not(.no-hover):hover{
     color: #11193B;
 }
 
+.disabled:hover{
+    background-color: #75CAC4;
+    opacity: 40%;
+    border-radius: 20px;
+    color: #11193B;
+
+}
+/* .disabled:hover::before{
+    content: attr(title);
+} */
 
 @media only screen and (max-width:1360px) {
     
