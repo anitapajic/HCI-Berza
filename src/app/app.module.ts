@@ -12,6 +12,10 @@ import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './table/table.component';
 import { CommonModule } from '@angular/common';
+import { MatSelectModule } from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -23,10 +27,12 @@ import { CommonModule } from '@angular/common';
     FooterComponent,
     TableComponent
   ],
-    
   imports: [
-    BrowserModule, FormsModule, NgApexchartsModule, HttpClientModule, CommonModule
-
+    BrowserModule, 
+    FormsModule, 
+    HttpClientModule, 
+    CommonModule,
+    NgApexchartsModule, 
   ],
   exports : [CommonModule],
   providers: [],

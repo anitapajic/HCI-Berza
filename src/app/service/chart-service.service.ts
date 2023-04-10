@@ -7,6 +7,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaderResponse, HttpResponse, HttpSta
 })
 export class ChartServiceService {
   API_KEY : String = "1ICUELNM3NPL3ME1";
+  API_KEY0 : String = "AP3OTFEF3W2AW15T";
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +28,9 @@ export class ChartServiceService {
 
   getIBMIntraDay(interval : Number){
     return this.http.get('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=' + interval + 'min&apikey=' + this.API_KEY + '&datatype=csv', { responseType: 'text' })
+  }
+    getCryptoInfo(crypto : String){
+    return this.http.get('https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=' + crypto + '&to_currency=USD&apikey=' + this.API_KEY)
   }
 
 }
