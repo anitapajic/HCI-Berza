@@ -1,0 +1,27 @@
+
+<div id="chart">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [plotOptions]="chartOptions.plotOptions"
+    [xaxis]="chartOptions.xaxis"
+    [yaxis]="chartOptions.yaxis"
+    [title]="chartOptions.title"
+    [tooltip]="chartOptions.tooltip"
+  ></apx-chart>
+</div>
+<div id="chartVolume">
+  <apx-chart
+    [series]="chartVolumeOptions.series"
+    [chart]="chartVolumeOptions.chart"
+    [xaxis]="chartVolumeOptions.xaxis"
+    [yaxis]="chartVolumeOptions.yaxis"
+    [title]="chartVolumeOptions.title"
+    [tooltip]="chartVolumeOptions.tooltip"
+    [dataLabels]="chartVolumeOptions.dataLabels"
+    [fill]="chartVolumeOptions.fill"
+    [plotOptions]="chartVolumeOptions.plotOptions"
+
+  ></apx-chart>
+</div>
+

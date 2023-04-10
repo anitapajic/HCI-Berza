@@ -1,0 +1,75 @@
+img{
+    padding: 10px;
+    width: 18%;
+}
+
+.containerr {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr 1fr 0.9fr;
+    grid-template-rows: 0.2fr 0.2fr 2.9fr 0.3fr;
+    grid-template-areas: 
+        "nav nav nav nav"
+        "LSideBar title title title"
+        "LSideBar main main RSideBar"
+        "footer footer footer footer";
+    
+}
+
+#nav {
+    background-color: #11193B;
+    grid-area: nav;
+}
+
+#LSideBar {
+    background-color: #11193B;
+    grid-area: LSideBar;
+    border-right: 1px solid #EBEAE5;
+    
+    margin-bottom: 50px;
+    padding-top: 0px;
+}
+
+#title {
+    background-color: #11193B;
+    grid-area: title;
+    border-bottom: 1px solid #EBEAE5;
+    margin-left: 60px;
+    margin-right: 60px;
+    color: #EBEAE5;
+}
+
+p {
+    margin-left: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    margin-top: 20px;
+    color: #EBEAE5;
+}
+
+#main {
+    background-color: #11193B;
+    grid-area: main;
+}
+
+#RSideBar {
+    background-color: #11193B;
+    grid-area: RSideBar;
+}
+
+#footer {
+    background-color: #11172F;
+    grid-area: footer;
+}
+
+@media only screen and (max-width:1360px) {
+    .containerr {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 0.2fr 0.5fr 2.2fr 1.2fr 0.6fr;
+        grid-template-areas: "nav" "title" "LSideBar" "main" "RSideBar" "footer";
+    }
+
+    
+}

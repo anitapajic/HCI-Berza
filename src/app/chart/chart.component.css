@@ -1,0 +1,11 @@
+p {
+    font-family: Lato;
+}
+
+#chart {
+    padding: 20px 60px 0px 60px;
+}
+
+#chartVolume {
+    padding: 0px 60px 20px 60px;
+}
