@@ -21,15 +21,16 @@
     font-size: 15px;
 }
 .value{
-    padding-top: 10px;
+    padding-top: 13px;
     padding-left: 0px;
     color: #EBEAE5;
-    font-size: 20px;
+    font-size: 19px;
 }
 .titleS{
     color: #11172F;
     margin-bottom: 0px;
     font-size: 15px;
+    padding-bottom: 3px;
 }
 .valueS{
     padding-left: 0px;
