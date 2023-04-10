@@ -20,6 +20,13 @@
     transition: 1s;
 }
 
+.clicked {
+    background-color: #758ADD;
+}
+.clicked .title,.clicked .price{
+    color: #11193B;
+}
+
 .title{
     font-family: Lato;
     font-style: normal;

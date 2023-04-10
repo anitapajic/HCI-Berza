@@ -5,13 +5,6 @@ import { ListItem } from 'ng-multiselect-dropdown/multiselect.model';
 import {Post} from "../post";
 import {DataService} from "../service/data.service";
 
-//
-// export type selectedOption = {
-//   title : String,
-//   value : String,
-//   img : String
-// }
-
 
 
 @Component({
@@ -21,6 +14,7 @@ import {DataService} from "../service/data.service";
 })
 export class CryptocurrencyComponent implements OnInit{
   post: Post[]  | undefined;
+  currentCard : String = 'BTC';
   constructor(private dataService : DataService) {}
 
   ngOnInit() {
@@ -35,120 +29,16 @@ export class CryptocurrencyComponent implements OnInit{
   }
 
   getFilteredExpenseList() {
-    if (this.dataService.searchOption.length > 0)
+    if (this.dataService.searchOption.length > 0){
       this.post = this.dataService.filteredListOptions();
+      if(this.post[0]){
+        this.currentCard = this.post[0].value;
+      }
+    }
     else {
       this.post = this.dataService.postsData;
     }
 
   }
-
-
-
-
-
-
-
-    // public selectedOption : selectedOption | undefined;
-    //
-    // public BTC : selectedOption | undefined;
-    // public ETH : selectedOption | undefined;
-    // public SOL : selectedOption | undefined;
-    //
-    // currencies = [
-    //   { name: 'Bitcoin', code: 'BTC' },
-    //   { name: 'Ethereum', code: 'ETH' },
-    //   { name: 'Solana', code: 'SOL' }
-    // ];
-    //
-    //
-    // constructor(private service : ChartServiceService){
-    //   service.getCryptoInfo('BTC').subscribe(
-    //     (response : any) => {
-    //       this.BTC = {
-    //         title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
-    //         value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-    //         img : 'btc_logo.png'
-    //       }
-    //   })
-    //
-    //   service.getCryptoInfo('ETH').subscribe(
-    //     (response : any) => {
-    //       this.ETH = {
-    //         title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
-    //         value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-    //         img : 'eth_logo.png'
-    //       }
-    //   })
-    //
-    //    service.getCryptoInfo('SOL').subscribe(
-    //     (response : any) => {
-    //       this.SOL = {
-    //         title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
-    //         value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-    //         img : 'sol_logo.png'
-    //       }
-    //    })
-    //
-    //
-    //   // this.selectedOption = {
-    //   //   title : "Title",
-    //   //   value : (10000.03).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-    //   //   img : ''
-    //   // }
-    // }
-
-
-
-  // public selectedOption : selectedOption | undefined;
-  //
-  // public BTC : selectedOption | undefined;
-  // public ETH : selectedOption | undefined;
-  // public SOL : selectedOption | undefined;
-  //
-  // currencies = [
-  //   { name: 'Bitcoin', code: 'BTC' },
-  //   { name: 'Ethereum', code: 'ETH' },
-  //   { name: 'Solana', code: 'SOL' }
-  // ];
-  //
-  //
-  // constructor(private service : ChartServiceService){
-  //   service.getCryptoInfo('BTC').subscribe(
-  //     (response : any) => {
-  //       this.BTC = {
-  //         title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
-  //         value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-  //         img : 'btc_logo.png'
-  //       }
-  //   })
-  //
-  //   service.getCryptoInfo('ETH').subscribe(
-  //     (response : any) => {
-  //       this.ETH = {
-  //         title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
-  //         value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-  //         img : 'eth_logo.png'
-  //       }
-  //   })
-  //
-  //    service.getCryptoInfo('SOL').subscribe(
-  //     (response : any) => {
-  //       this.SOL = {
-  //         title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
-  //         value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-  //         img : 'sol_logo.png'
-  //       }
-  //    })
-  //
-  //
-  //   // this.selectedOption = {
-  //   //   title : "Title",
-  //   //   value : (10000.03).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-  //   //   img : ''
-  //   // }
-  // }
-
-
 
 }
