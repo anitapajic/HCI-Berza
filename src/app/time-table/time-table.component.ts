@@ -10,15 +10,18 @@ import {ChartServiceService} from "../service/chart-service.service";
 export class TimeTableComponent {
 
 public chartService : ChartServiceService | undefined;
+public currentPeriod : String = 'D';
 
 constructor(private service : ChartServiceService) {
   this.chartService = service;
 }
 
 getCrypto(period: String) {
+  this.currentPeriod = period;
   this.chartService?.getCrypto('',period);
 }
 getIBM(min : number){
+  this.currentPeriod = min.toString();
   this.chartService?.getIBMIntraDay(min);
 }
 }

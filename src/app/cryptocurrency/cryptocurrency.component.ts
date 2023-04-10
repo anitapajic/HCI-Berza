@@ -20,6 +20,7 @@ export type selectedOption = {
 export class CryptocurrencyComponent implements OnInit{
 
   public selectedOption : selectedOption | undefined;
+  public currentCard : String = 'BTC';
 
   public BTC : selectedOption | undefined;
   chartService : ChartServiceService | undefined;
@@ -71,6 +72,8 @@ export class CryptocurrencyComponent implements OnInit{
   }
 
   getInfo(crypto : String){
+    this.currentCard = crypto;
+    console.log(crypto);
     this.chartService?.getCrypto(crypto, '');
   }
 

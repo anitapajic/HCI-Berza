@@ -40,6 +40,13 @@ td:not(.no-hover):hover{
 
 }
 
+.clicked{
+    background-color: #75CAC4;
+    border-radius: 20px;
+    color: #11193B;
+}
+
+
 @media only screen and (max-width:1360px) {
     
     .table-div{

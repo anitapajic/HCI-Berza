@@ -29,7 +29,7 @@
 </div>
 <div class="align">
 <div class="cryptocurrency">
-    <div (click)="getInfo('BTC')" class="card" id="card1">
+    <div (click)="getInfo('BTC')" class="card" id="card1" [ngClass]="{'card': true, 'clicked': currentCard == 'BTC'}">
         <div class="row">
             <div class="col-7">
                 <p class="title">{{BTC?.title}}</p>
@@ -43,7 +43,7 @@
             <p class="price">{{BTC?.value}}</p>
         </div>
     </div>
-    <div (click)="getInfo('ETH')"class="card" id="card2">
+    <div (click)="getInfo('ETH')"class="card" id="card2" [ngClass]="{'card': true, 'clicked': currentCard == 'ETH'}" >
         <div class="row">
             <div class="col-7 col7e">
                 <p class="title">{{ETH?.title}}</p>
@@ -57,7 +57,7 @@
             <p class="price">{{ETH?.value}}</p>
         </div>
     </div>
-    <div (click)="getInfo('SOL')"class="card" id="card3">
+    <div (click)="getInfo('SOL')"class="card" id="card3"  [ngClass]="{'card': true, 'clicked': currentCard == 'SOL'}"  >
         <div class="row">
             <div class="col-7">
                 <p class="title">{{SOL?.title}}</p>
