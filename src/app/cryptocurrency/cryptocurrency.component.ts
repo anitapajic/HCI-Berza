@@ -22,6 +22,7 @@ export class CryptocurrencyComponent implements OnInit{
   public selectedOption : selectedOption | undefined;
 
   public BTC : selectedOption | undefined;
+  chartService : ChartServiceService | undefined;
   public ETH : selectedOption | undefined;
   public SOL : selectedOption | undefined;
   
@@ -33,32 +34,33 @@ export class CryptocurrencyComponent implements OnInit{
 
 
   constructor(private service : ChartServiceService){
-    // service.getCryptoInfo('BTC').subscribe(
-    //   (response : any) => {
-    //     this.BTC = {
-    //       title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
-    //       value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-    //       img : 'btc_logo.png'
-    //     }
-    // })
+    this.chartService = service;
+    service.getCryptoInfo('BTC').subscribe(
+      (response : any) => {
+        this.BTC = {
+          title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
+          value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
+          img : 'btc_logo.png'
+        }
+    })
 
-    // service.getCryptoInfo('ETH').subscribe(
-    //   (response : any) => {
-    //     this.ETH = {
-    //       title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
-    //       value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-    //       img : 'eth_logo.png'
-    //     }
-    // })
+    service.getCryptoInfo('ETH').subscribe(
+      (response : any) => {
+        this.ETH = {
+          title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
+          value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
+          img : 'eth_logo.png'
+        }
+    })
       
-    //  service.getCryptoInfo('SOL').subscribe(
-    //   (response : any) => {
-    //     this.SOL = {
-    //       title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
-    //       value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
-    //       img : 'sol_logo.png'
-    //     }
-    //  })
+     service.getCryptoInfo('SOL').subscribe(
+      (response : any) => {
+        this.SOL = {
+          title : response["Realtime Currency Exchange Rate"]["2. From_Currency Name"],
+          value: (Number(response["Realtime Currency Exchange Rate"]["5. Exchange Rate"])).toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
+          img : 'sol_logo.png'
+        }
+     })
 
 
     // this.selectedOption = {
@@ -67,6 +69,11 @@ export class CryptocurrencyComponent implements OnInit{
     //   img : ''
     // }
   }
+
+  getDaily(crypto : String){
+    this.chartService?.getCryptoDaily(crypto);
+  }
+
   ngOnInit(): void {
 
   }

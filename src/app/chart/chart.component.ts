@@ -44,27 +44,29 @@ export class MyChartComponent  implements OnInit{
 
   public chartOptions: ChartOptions;
   private selectedCrypto : String = "";
-  private selectedInterval:Number = 0;
+  private selectedInterval: Number = 0;
   private chartData! : any[];
   chartVolumeData! : any[];
   cryptocurrencyComponent : CryptocurrencyComponent | undefined;
   intervalComponent : TimeTableComponent | undefined;
   @ViewChild("chartVolume") chartVolume: ChartComponent | undefined;
+
   public chartVolumeOptions: ChartOptions;
 
   constructor(private chartService : ChartServiceService) {
-    this.chartService.getBTC().subscribe(
-      response => {
-        this.chartData = getDataFromResponse(response);
-        this.chartOptions.series = [{
-          data : this.chartData
-        }]
-        this.chartVolumeData = getVolumeDataFromResponse(response);
-        this.chartVolumeOptions.series = [{
-          data : this.chartVolumeData
-        }]
-      }
-    )
+    this.chartService.getCryptoDaily('BTC')
+
+    this.chartService.data.subscribe((data : any) => {
+      this.chartData = getDataFromResponse(data);
+      this.chartOptions.series = [{
+        data : this.chartData
+      }]
+      this.chartVolumeData = getVolumeDataFromResponse(data);
+      this.chartVolumeOptions.series = [{
+        data : this.chartVolumeData
+      }]
+    });
+  
 
     this.chartVolumeOptions = {
       series: [

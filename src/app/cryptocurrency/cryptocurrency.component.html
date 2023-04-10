@@ -29,7 +29,7 @@
 </div>
 <div class="align">
 <div class="cryptocurrency">
-    <div (click)="getBTC()" class="card" id="card1">
+    <div (click)="getDaily('BTC')" class="card" id="card1">
         <div class="row">
             <div class="col-7">
                 <p class="title">{{BTC?.title}}</p>
@@ -43,7 +43,7 @@
             <p class="price">{{BTC?.value}}</p>
         </div>
     </div>
-    <div (click)="getETH()"class="card" id="card2">
+    <div (click)="getDaily('ETH')"class="card" id="card2">
         <div class="row">
             <div class="col-7 col7e">
                 <p class="title">{{ETH?.title}}</p>
@@ -57,7 +57,7 @@
             <p class="price">{{ETH?.value}}</p>
         </div>
     </div>
-    <div (click)="getSOL()"class="card" id="card3">
+    <div (click)="getDaily('SOL')"class="card" id="card3">
         <div class="row">
             <div class="col-7">
                 <p class="title">{{SOL?.title}}</p>
