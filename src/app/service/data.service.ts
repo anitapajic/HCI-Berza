@@ -90,7 +90,6 @@ export class DataService {
         }
       }
     }
-    console.log(filteredPostsList);
     return filteredPostsList;
   }
 

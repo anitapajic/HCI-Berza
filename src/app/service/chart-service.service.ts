@@ -18,10 +18,10 @@ export class ChartServiceService {
 
 
   getCrypto(crypto : String, period : String){
-    if (crypto == ''){
-      crypto = this.currentOption;
+    if (crypto != ''){
+      this.currentOption = crypto;
     }
-    this.currentOption = crypto;
+
     switch(period){
       case '':
         break;
@@ -36,9 +36,19 @@ export class ChartServiceService {
           break;
       
     }
-    this.http.get('https://www.alphavantage.co/query?function='+ this.periodOption +'&symbol=' + crypto + '&market=USD&apikey=' + this.API_KEY + '&datatype=csv', { responseType: 'text' }).subscribe(
-      response => { 
-        this.data.next(response)
+    this.http.get('https://www.alphavantage.co/query?function='+ this.periodOption +'&symbol=' + this.currentOption + '&market=USD&apikey=' + this.API_KEY + '&datatype=csv', { responseType: 'text' }).subscribe(
+      (response : String) => { 
+        if (response.includes('Thank you for using Alpha Vantage!')){
+          this.data.next('')
+          alert('Wait a minute')
+        }
+        else if(response.includes('Error Message')){
+          this.data.next('')
+          alert('Premium option')
+        }
+        else{
+          this.data.next(response)
+        }
       }
     )
   }

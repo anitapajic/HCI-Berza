@@ -6,7 +6,7 @@
 
 <div class="align">
 <div class="cryptocurrency">
-    <div *ngFor="let posts of post"  id="card1"  [ngClass]="{'card': true, 'clicked': currentCard == posts.value}">
+    <div *ngFor="let posts of post"  id="card1" (click)="onClick(posts.value)" [ngClass]="{'card': true, 'clicked': currentCard == posts.value}">
         <div class="row">
             <div class="col-7">
                 <p class="title">{{posts.title}}</p>
