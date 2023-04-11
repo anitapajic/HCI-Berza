@@ -16,8 +16,10 @@
     border-radius: 30px;
     background-color: #2D3653;
     width: 218px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     transition: 1s;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .clicked{
     background-color: #758ADD;
@@ -38,7 +40,7 @@
     font-family: Lato;
     font-style: normal;
     font-weight: 500;
-    font-size: 25px;
+    font-size: 22px;
     line-height: 28px;
     color: #EBEAE5;
     margin-left: 5px;
@@ -60,10 +62,12 @@
 }
 .btc{
     width: 70px;
+    padding-right: 10px;
+
 }
 .col-7{
     padding-top: 5px;
-    max-width: 58%;
+    width: 200px;
 }
 .col-5{
     padding: 0;
@@ -77,7 +81,7 @@
 .col5e{
     padding: 0;
     padding-left: 8px;
-    max-width: 39.1%;
+    max-width: 37.1%;
 }
 .card:hover{
     background-color: #758ADD;
@@ -134,19 +138,66 @@
     background-color: #758ADD;
     transform: scale(1.06);
 }
+
+.cryptocurrency-wrapper {
+    height: 530px;
+    width: fit-content;
+    padding: 12px;
+    overflow-y: scroll;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #bbb; 
+    border-radius: 3px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #999; 
+  }
+
 @media only screen and (max-width:1360px) {
-    .cryptocurrency{
+
+      .cryptocurrency-wrapper{
+        max-width: 740px;
+        overflow-x: scroll; 
+        scroll-snap-type: x mandatory;
+        height: 220px;
+      }
+      .cryptocurrency-container {
+        -webkit-overflow-scrolling: touch; /* add smooth scrolling on iOS */
+        scrollbar-width: none; /* remove the scrollbar */
+        -ms-overflow-style: none; /* remove the scrollbar on Edge */
+      }
+      .cryptocurrency::-webkit-scrollbar {
+        display: none; /* hide the scrollbar on WebKit */
+      }
+      .cryptocurrency {
+        padding: 15px;
+        margin: 0px 25px;
+        white-space: nowrap;
+      }
+      
+      .card {
+        display: inline-block;
+        margin-right: 15px;
+        
+
+      }
+      .align{
         display: flex;
         justify-content: center;
-        padding-bottom: 10px;
-        padding-top: 5px;
-        margin:0px 15px 0px 15px;
-    }
-    .search-bar{
-        margin:70px 15px 0px 15px;
-    }
+        align-items: center;
+      }
 
-    .card{
-        margin-left: 10px;
-    }
 }

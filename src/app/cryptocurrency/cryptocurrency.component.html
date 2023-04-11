@@ -5,7 +5,7 @@
 </div>
 
 <div class="align">
-<div class="cryptocurrency">
+<div class="cryptocurrency cryptocurrency-wrapper">
     <div *ngFor="let posts of post"  id="card1" (click)="onClick(posts.value)" [ngClass]="{'card': true, 'clicked': currentCard == posts.value}">
         <div class="row">
             <div class="col-7">
