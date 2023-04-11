@@ -18,6 +18,8 @@
     width: 218px;
     margin-bottom: 20px;
     transition: 1s;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .clicked{
     background-color: #758ADD;
@@ -60,10 +62,12 @@
 }
 .btc{
     width: 70px;
+    padding-right: 10px;
+
 }
 .col-7{
     padding-top: 5px;
-    max-width: 62%;
+    width: 200px;
 }
 .col-5{
     padding: 0;
@@ -136,7 +140,7 @@
 }
 
 .cryptocurrency-wrapper {
-    height: 550px;
+    height: 530px;
     width: fit-content;
     padding: 12px;
     overflow-y: scroll;
@@ -165,7 +169,7 @@
 @media only screen and (max-width:1360px) {
 
       .cryptocurrency-wrapper{
-        max-width: 700px;
+        max-width: 740px;
         overflow-x: scroll; 
         scroll-snap-type: x mandatory;
         height: 220px;
