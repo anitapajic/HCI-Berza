@@ -26,7 +26,7 @@ export class TableComponent implements AfterViewInit {
   
 function getDataFromResponse(response: string) : any[] {  
     const tableData: any[] = response.split('\n').slice(1, -1).map((row: String, index:number) => {
-      const [time, open, high, low, close, volume] = row.split(',');
+      const [time, open, high, low, close, open2, high2, low2, close2,  volume] = row.split(',');
       return {
         time : time,
         open : parseFloat(open), 
